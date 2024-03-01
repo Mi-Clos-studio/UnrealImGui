@@ -3097,6 +3097,11 @@ bool ImGui::SliderAngle(const char* label, float* v_rad, float v_degrees_min, fl
     return value_changed;
 }
 
+bool ImGui::SliderDouble(const char* label, double* v, double v_min, double v_max, const char* format, ImGuiSliderFlags flags)
+{
+    return SliderScalar(label, ImGuiDataType_Double, v, &v_min, &v_max, format, flags);
+}
+
 bool ImGui::SliderInt(const char* label, int* v, int v_min, int v_max, const char* format, ImGuiSliderFlags flags)
 {
     return SliderScalar(label, ImGuiDataType_S32, v, &v_min, &v_max, format, flags);
@@ -3115,6 +3120,16 @@ bool ImGui::SliderInt3(const char* label, int v[3], int v_min, int v_max, const 
 bool ImGui::SliderInt4(const char* label, int v[4], int v_min, int v_max, const char* format, ImGuiSliderFlags flags)
 {
     return SliderScalarN(label, ImGuiDataType_S32, v, 4, &v_min, &v_max, format, flags);
+}
+
+bool ImGui::SliderUint16(const char* label, uint16* v, uint16 v_min, uint16 v_max, const char* format, ImGuiSliderFlags flags)
+{
+    return SliderScalar(label, ImGuiDataType_U16, v, &v_min, &v_max, format, flags);
+}
+
+bool ImGui::SliderUint8(const char* label, uint8* v, uint8 v_min, uint8 v_max, const char* format, ImGuiSliderFlags flags)
+{
+    return SliderScalar(label, ImGuiDataType_U8, v, &v_min, &v_max, format, flags);
 }
 
 bool ImGui::VSliderScalar(const char* label, const ImVec2& size, ImGuiDataType data_type, void* p_data, const void* p_min, const void* p_max, const char* format, ImGuiSliderFlags flags)
